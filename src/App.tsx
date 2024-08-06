@@ -1,4 +1,5 @@
-import { Box, Button, Flex, Heading, Input, ListItem, Stack, Text, UnorderedList, useColorMode, useColorModeValue } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, IconButton, Input, ListItem, Stack, Text, UnorderedList, useColorMode, useColorModeValue } from "@chakra-ui/react"
+import {Sun,Moon} from '@phosphor-icons/react';
 
 function App() {
   const {colorMode,toggleColorMode} = useColorMode();
@@ -7,9 +8,7 @@ function App() {
 
   return (
     <Flex bg={containerForm} h={"100vh"} position={"relative"}>
-      <Button onClick={toggleColorMode} position={"fixed"} top={2}right={2}>
-        {colorMode=="light" ? "Dark" :"Light"}
-      </Button>
+      <IconButton aria-label="theme-switcher" onClick={toggleColorMode} position={"fixed"} top={2} right={2} icon={colorMode=="light" ? <Moon size={22}/> :<Sun size={22}/>}/>
       <Stack spacing={3} w={"100%"} maxW={"md"} h={"fit-content"} bg={bgForm} mx={"auto"} mt={"10%"} px={6} py={4} rounded={8} boxShadow={"lg"}>
         <form action="">
           <Heading size={"lg"} my={6} fontSize={22} fontWeight={"500"}>Shopping List</Heading>
@@ -32,5 +31,4 @@ function App() {
     </Flex>
   )
 }
-
 export default App
