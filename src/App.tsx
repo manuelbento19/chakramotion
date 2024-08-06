@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, IconButton, Input, ListItem, Stack, Text, UnorderedList, useColorMode, useColorModeValue } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, IconButton, Input, ListItem, Stack, Text, UnorderedList, useColorMode, useColorModeValue, useToast } from "@chakra-ui/react"
 import {Sun,Moon} from '@phosphor-icons/react';
 import { useState } from "react";
 
@@ -12,6 +12,7 @@ function App() {
   const containerForm = useColorModeValue("ButtonFace","#2b2b2b");
   const bgForm = useColorModeValue("white","#333333");
   const [items,setItems] = useState<Item[]>([]);
+  const toast = useToast();
 
   const addItem = (name:string) => {
     const id = crypto.randomUUID();
@@ -26,7 +27,12 @@ function App() {
     const [input] = e.target;
     
     if(!input.value) 
-    return input.focus();
+    return toast({
+      description: "Empty field",
+      status: 'warning',
+      isClosable: true,
+      position: "top"
+    });
     addItem(input.value);
     input.value = "";
   }
