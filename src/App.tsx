@@ -1,11 +1,9 @@
-import { Box, Button, Flex, Heading, IconButton, Input, ListItem, Stack, Text, UnorderedList, useColorMode, useColorModeValue, useToast } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, IconButton, Input, Stack, UnorderedList, useColorMode, useColorModeValue, useToast} from "@chakra-ui/react"
 import {Sun,Moon} from '@phosphor-icons/react';
 import { useState } from "react";
-
-type Item = {
-  id: string;
-  name: string;
-}
+import { Item } from "./types";
+import ListItem from "./ListItem";
+import { Reorder } from "framer-motion";
 
 function App() {
   const {colorMode,toggleColorMode} = useColorMode();
@@ -49,13 +47,13 @@ function App() {
           </Flex>
         </form>
         <Box maxH={300} overflow={"auto"}>
-          <UnorderedList styleType={"none"} m={0} display={"flex"} flexDirection={'column'} gap={2} px={2} py={2}>
-            {items.map(item=>(
-              <ListItem key={item.id} border={"1px"} borderColor={"gray.200"} display={"flex"} alignItems={"center"} px={2} py={2.5} rounded={4}>
-                <Text flex={1}>{item.name}</Text>
-                <Button onClick={()=>removeItem(item.id)} colorScheme="gray" size={"sm"} fontSize={13}>Delete</Button>
-              </ListItem>
-            ))}
+          <UnorderedList styleType={"none"} m={0}>
+            <Reorder.Group as={"ul"}
+              axis="y" values={items} onReorder={setItems}
+              style={{listStyle: "none",margin:0,display: "flex",flexDirection:"column",gap: 6,padding: 2}}
+            > 
+              {items.map(item=><ListItem key={item.id} data={item} removeCallback={removeItem}/>)}
+            </Reorder.Group>
           </UnorderedList>
         </Box>
       </Stack>
