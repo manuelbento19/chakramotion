@@ -1,4 +1,6 @@
 # ChakraMotion
+ 
+![Resultado final do projecto](./public/preview.png)
 
 **ChakraMotion** é um projeto que combina o poder da [Chakra UI](https://chakra-ui.com/) com a animação do [Framer Motion](https://www.framer.com/api/motion/) para criar uma experiência de usuário interativa e visualmente atraente em aplicações React.
 
