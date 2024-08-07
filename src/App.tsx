@@ -1,9 +1,9 @@
 import { Box, Button, Flex, Heading, IconButton, Input, Stack, UnorderedList, useColorMode, useColorModeValue, useToast} from "@chakra-ui/react"
 import {Sun,Moon} from '@phosphor-icons/react';
-import { useState } from "react";
-import { Item } from "./types";
+import React, { useState } from "react";
 import ListItem from "./ListItem";
 import { AnimatePresence, Reorder } from "framer-motion";
+import { Item } from "./types";
 
 function App() {
   const {colorMode,toggleColorMode} = useColorMode();
@@ -16,6 +16,7 @@ function App() {
     const id = crypto.randomUUID();
     setItems(prev=>[...prev,{id,name}]);
   }
+
   const removeItem = (id:string) => {
     setItems(prev=>prev.filter(item=>item.id!==id))
   }

@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# ChakraMotion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ChakraMotion** é um projeto que combina o poder da [Chakra UI](https://chakra-ui.com/) com a animação do [Framer Motion](https://www.framer.com/api/motion/) para criar uma experiência de usuário interativa e visualmente atraente em aplicações React.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias Utilizadas
+- [Chakra UI Docs](https://chakra-ui.com/docs/getting-started) - uma biblioteca de componentes para React que facilita a construção de interfaces de usuário acessíveis e responsivas.
+- [Framer Motion Docs](https://www.framer.com/) - uma biblioteca de animação para React que permite criar animações fluidas e interativas com facilidade.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Começando
 
-## Expanding the ESLint configuration
+### 1. Clonar o Repositório
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Clone este repositório para sua máquina local:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/manuelbento19/chakramotion.git
+cd chakramotion
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2. Instalar Dependências
+
+Instale as dependências do projeto com npm ou yarn:
+
+```bash
+npm install
+```
+
+ou
+
+```bash
+yarn install
+```
+
+### 3. Executar o Projeto
+
+Para iniciar o servidor de desenvolvimento, use o comando:
+
+```bash
+npm start
+```
+
+ou
+
+```bash
+yarn start
+```
+
+Abra seu navegador e vá para `http://localhost:5173` para ver o aplicativo em ação.
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Se você deseja contribuir para o projeto, por favor, abra um pull request ou envie um problema (issue) para discussão.
+
+## 📝 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
