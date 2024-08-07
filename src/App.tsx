@@ -3,7 +3,7 @@ import {Sun,Moon} from '@phosphor-icons/react';
 import { useState } from "react";
 import { Item } from "./types";
 import ListItem from "./ListItem";
-import { Reorder } from "framer-motion";
+import { AnimatePresence, Reorder } from "framer-motion";
 
 function App() {
   const {colorMode,toggleColorMode} = useColorMode();
@@ -46,13 +46,15 @@ function App() {
             <Button type="submit" colorScheme="orange" fontSize={"1rem"}>Add</Button>
           </Flex>
         </form>
-        <Box maxH={300} overflow={"auto"}>
+        <Box maxH={300} overflowY={"auto"} overflowX={"hidden"}>
           <UnorderedList styleType={"none"} m={0}>
             <Reorder.Group as={"ul"}
               axis="y" values={items} onReorder={setItems}
               style={{listStyle: "none",margin:0,display: "flex",flexDirection:"column",gap: 6,padding: 2}}
-            > 
-              {items.map(item=><ListItem key={item.id} data={item} removeCallback={removeItem}/>)}
+            >
+              <AnimatePresence>
+                {items.map(item=><ListItem key={item.id} data={item} removeCallback={removeItem}/>)}
+              </AnimatePresence>
             </Reorder.Group>
           </UnorderedList>
         </Box>

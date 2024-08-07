@@ -1,4 +1,4 @@
-import {Button, Text} from '@chakra-ui/react';
+import { Button, Text} from '@chakra-ui/react';
 import { Reorder, Variants } from 'framer-motion';
 import { Item } from './types';
 import { memo } from 'react';
@@ -12,13 +12,13 @@ const itemVariants: Variants = {
     hidden: {opacity: 0},
     visible: {opacity: 1},
     transition: {transitionDuration: "3s"},
-    exit: {}
+    exit: { opacity: 0, translateX: [0,1000]}
 }
 
 const ListItem: React.FC<Props> = ({data,removeCallback}) => {
   
     return (
-        <Reorder.Item value={data} variants={itemVariants} initial="hidden" animate="visible" style={{
+        <Reorder.Item value={data} variants={itemVariants} initial="hidden" animate="visible" exit="exit" style={{
             border: "1px solid #ddd",
             borderRadius:4,
             display: "flex",
